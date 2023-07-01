@@ -6,11 +6,7 @@ class Task {
   final String imageUrl;
   final String description;
 
-  Task(
-      {required this.name,
-      required this.status,
-      required this.imageUrl,
-      required this.description});
+  Task({required this.name, required this.status, required this.imageUrl, required this.description});
 }
 
 class Readings extends StatefulWidget {
@@ -25,21 +21,21 @@ class _ReadingsState extends State<Readings> {
       status: 'Concluída',
       imageUrl: '',
       description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'A cegueira também é isto, viver num mundo onde se tenha acabado a esperança.',
     ),
     Task(
       name: 'Tarefa 2',
       status: 'Em progresso',
       imageUrl: '',
       description:
-          'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          'Renda-se, como eu me rendi. Mergulhe no que você não conhece como eu mergulhei. Não se preocupe em entender, viver ultrapassa qualquer entendimento.',
     ),
     Task(
       name: 'Tarefa 3',
       status: 'Pendente',
       imageUrl: '',
       description:
-          'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+          'O correr da vida embrulha tudo, a vida é assim: esquenta e esfria, aperta e daí afrouxa, sossega e depois desinquieta. O que ela quer da gente é coragem.',
     ),
   ];
 
@@ -47,6 +43,7 @@ class _ReadingsState extends State<Readings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Lista de Cards'),
         actions: [
           IconButton(
             icon: Icon(Icons.search),
