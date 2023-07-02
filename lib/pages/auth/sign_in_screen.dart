@@ -25,9 +25,9 @@ class SignInScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Nome app // App name
-                    Text.rich(
+                    const Text.rich(
                       TextSpan(
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 80,
                         ),
                         children: [
@@ -138,14 +138,14 @@ class SignInScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 5),
                       child: Row(
-                        children: [
+                        children: const [
                           Expanded(
                             child: Divider(
                               color: Colors.blueGrey,
                               thickness: 1,
                             ),
                           ),
-                          const Padding(
+                          Padding(
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             child: Text('Ou'),
                           ),
@@ -179,7 +179,7 @@ class SignInScreen extends StatelessWidget {
                             }),
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           'Criar conta',
                           style: TextStyle(
                             fontSize: 20,

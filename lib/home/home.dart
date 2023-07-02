@@ -27,9 +27,9 @@ class Home extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Nome app // App name
-                    Text.rich(
+                    const Text.rich(
                       TextSpan(
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 80,
                         ),
                         children: [

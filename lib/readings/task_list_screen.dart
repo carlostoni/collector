@@ -19,7 +19,7 @@ class _ReadingsState extends State<Readings> {
     Task(
       name: 'Tarefa 1',
       status: 'Concluída',
-      imageUrl: '',
+      imageUrl: 'https://ps.w.org/doqrcode/assets/icon-256x256.png?rev=2143781',
       description:
           'A cegueira também é isto, viver num mundo onde se tenha acabado a esperança.',
     ),
