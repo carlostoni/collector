@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class Register extends StatelessWidget {
-  Register ({Key? key}) : super(key: key);
+  Register({Key? key}) : super(key: key);
 
   final cpfFormatter = MaskTextInputFormatter(
     mask: '###.###.###-##',
@@ -20,7 +20,6 @@ class Register extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.cyan,
       body: SingleChildScrollView(
         child: SizedBox(
           height: size.height,
@@ -50,7 +49,7 @@ class Register extends StatelessWidget {
                     decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(30),
+                        top: Radius.circular(10),
                       ),
                     ),
                     child: Column(
@@ -83,7 +82,7 @@ class Register extends StatelessWidget {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(40),
+                                borderRadius: BorderRadius.circular(10),
                               ),
                             ),
                             onPressed: () {},
@@ -110,7 +109,7 @@ class Register extends StatelessWidget {
                     },
                     icon: const Icon(
                       Icons.arrow_back,
-                      color: Colors.blueGrey,
+                      color: Colors.black,
                     ),
                   ),
                 ),

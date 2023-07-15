@@ -34,19 +34,13 @@ class Home extends StatelessWidget {
                         ),
                         children: [
                           TextSpan(
-                            text: 'Esto',
+                            text: 'Estoque',
                             style: TextStyle(
-                              color: Colors.redAccent,
+                              color: Color.fromARGB(197, 233, 236, 30),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          TextSpan(
-                            text: 'que',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                        
                         ],
                       ),
                     ),
@@ -56,7 +50,7 @@ class Home extends StatelessWidget {
                       child: DefaultTextStyle(
                         style: const TextStyle(
                           fontSize: 40,
-                          color: Colors.brown,
+                          color: Color.fromARGB(255, 206, 94, 53),
                           fontWeight: FontWeight.bold,
                         ),
                         child: AnimatedTextKit(

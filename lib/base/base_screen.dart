@@ -1,4 +1,5 @@
 import 'package:estoque/collectors/collectors.dart';
+import 'package:estoque/qr%20scan/qr_scan.dart';
 import 'package:estoque/readings/task_list_screen.dart';
 import 'package:estoque/register/register.dart';
 import 'package:estoque/tasks/tasks.dart';
@@ -27,6 +28,7 @@ class _BaseScreenState extends State<BaseScreen> {
           children: [
             Readings(),
             Collectors(),
+            Qrscan(),
             Register(),
             Tasks(),
           ],
@@ -40,7 +42,7 @@ class _BaseScreenState extends State<BaseScreen> {
             });
           },
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.grey,
+          backgroundColor: Color.fromARGB(176, 174, 199, 211),
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white.withAlpha(200),
           items: const [
@@ -51,6 +53,10 @@ class _BaseScreenState extends State<BaseScreen> {
             BottomNavigationBarItem(
               icon: Icon(Icons.airport_shuttle_outlined),
               label: 'Coletores',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.camera_alt_outlined),
+              label: 'Qr Code',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.list_alt_outlined),
