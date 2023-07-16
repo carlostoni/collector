@@ -1,9 +1,15 @@
-import 'package:estoque/common_widgets/custom_text_field.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({Key? key}) : super(key: key);
+
+  final TextEditingController groupNameController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   final cpfFormatter = MaskTextInputFormatter(
     mask: '###.###.###-##',
@@ -56,27 +62,42 @@ class SignUpScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        const CustomTextField(
-                          icon: Icons.person,
-                          label: 'Nome do Grupo',
+                        TextField(
+                          controller: groupNameController,
+                          decoration: const InputDecoration(
+                            labelText: 'Nome do Grupo',
+                            prefixIcon: Icon(Icons.person),
+                          ),
                         ),
-                        const CustomTextField(
-                          icon: Icons.person,
-                          label: 'Nome',
+                        TextField(
+                          controller: nameController,
+                          decoration: const InputDecoration(
+                            labelText: 'Nome',
+                            prefixIcon: Icon(Icons.person),
+                          ),
                         ),
-                        CustomTextField(
-                          icon: Icons.phone,
-                          label: 'Telefone',
+                        TextField(
+                          controller: phoneController,
+                          decoration: const InputDecoration(
+                            labelText: 'Telefone',
+                            prefixIcon: Icon(Icons.phone),
+                          ),
                           inputFormatters: [phoneFormatter],
                         ),
-                        const CustomTextField(
-                          icon: Icons.email,
-                          label: 'Email',
+                        TextField(
+                          controller: emailController,
+                          decoration: const InputDecoration(
+                            labelText: 'Email',
+                            prefixIcon: Icon(Icons.email),
+                          ),
                         ),
-                        const CustomTextField(
-                          icon: Icons.lock,
-                          label: 'Senha',
-                          isSecret: true,
+                        TextField(
+                          controller: passwordController,
+                          decoration: const InputDecoration(
+                            labelText: 'Senha',
+                            prefixIcon: Icon(Icons.lock),
+                          ),
+                          obscureText: true,
                         ),
                         SizedBox(
                           height: 40,
@@ -86,7 +107,33 @@ class SignUpScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(40),
                               ),
                             ),
-                            onPressed: () {},
+                            onPressed: () async {
+                              // Get the values from the text fields
+                              final groupName = groupNameController.text;
+                              final name = nameController.text;
+                              final phone = phoneController.text;
+                              final email = emailController.text;
+                              final password = passwordController.text;
+
+                              // Create a user object with the extracted data
+                              final user = {
+                                'nome_grupo': groupName,
+                                'nome': name,
+                                'telefone': phone,
+                                'email': email,
+                                'senha': password,
+                              };
+
+                              // Save the user object to Firestore with a unique ID
+                              try {
+                                final docRef = FirebaseFirestore.instance.collection('usuarios').doc();
+                                final docId = docRef.id;
+                                await docRef.set(user);
+                                print('Usuário salvo no Firestore com o ID: $docId');
+                              } catch (e) {
+                                print('Erro ao salvar o usuário no Firestore: $e');
+                              }
+                            },
                             child: const Text(
                               'Cadastrar Usuário',
                               style: TextStyle(
