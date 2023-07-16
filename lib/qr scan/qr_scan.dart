@@ -11,8 +11,10 @@ class Qrscan extends StatelessWidget {
             Container(
               width: 350,
               height: 350,
-              color: Colors.white,
-              
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
             ),
             SizedBox(height: 50),
             CircleAvatar(
